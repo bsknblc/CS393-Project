@@ -19,18 +19,16 @@ public class Question {
     private Date askedDate;
 
     private int answerCount;
-    //selam
+
     private int voteCount;
 
     public Question(){}
 
-    public Question(String questionDescription, List<Tag> questionTag, MyUser askedBy, int answerCount, int voteCount) {
-        if (questionDescription.length()>=100){
-            this.questionTitle = questionDescription.substring(0,99);
-        }else{
-            this.questionTitle = questionDescription;
-        }
+    public Question(int questionId, String questionTitle, String questionDescription, Date askedDate, int answerCount, int voteCount) {
+        this.questionId = questionId;
+        this.questionTitle = questionTitle;
         this.questionDescription = questionDescription;
+        this.askedDate = askedDate;
         this.answerCount = answerCount;
         this.voteCount = voteCount;
     }

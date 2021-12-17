@@ -42,7 +42,7 @@ public class Question {
 
     @NotNull
     @Column(name = "VOTE_COUNT")
-    private int voteCount;
+    private int voteCount = 0;
 
     public Question(){}
 
@@ -56,7 +56,6 @@ public class Question {
         this.questionTag = questionTag;
         this.askedBy = askedBy;
         this.answerCount = answerCount;
-        this.voteCount = voteCount;
     }
 
     public int getQuestionId() {
