@@ -19,7 +19,7 @@ public class Question {
     private Date askedDate;
 
     private int answerCount;
-
+    //selam
     private int voteCount;
 
     public Question(){}
