@@ -1,11 +1,4 @@
-package com.Ozyegin.CS393.Model.DTO;
-
-import com.Ozyegin.CS393.Model.MyUser;
-import com.Ozyegin.CS393.Model.Question;
-import com.sun.istack.NotNull;
-
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
+package com.Ozyegin.CS393.DTO;
 
 public class Answer {
 
