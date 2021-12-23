@@ -12,6 +12,10 @@ public class AnswerDTO {
         this.voteCount = voteCount;
     }
 
+    public AnswerDTO(int answerId) {
+        this.answerId = answerId;
+    }
+
     public int getAnswerId() {
         return answerId;
     }

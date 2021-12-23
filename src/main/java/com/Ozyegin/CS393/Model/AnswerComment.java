@@ -9,5 +9,13 @@ public class AnswerComment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int answerCommentId;
 
+    public int getId() {
+        return answerCommentId;
+    }
+
+    public void setId(int id) {
+        this.answerCommentId = answerCommentId;
+    }
+
 
 }

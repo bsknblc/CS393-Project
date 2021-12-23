@@ -16,6 +16,10 @@ public class TagDTO {
         this.questions = questions;
     }
 
+    public TagDTO(int tagId) {
+        this.tagId=tagId;
+    }
+
     public int getTagId() {
         return tagId;
     }

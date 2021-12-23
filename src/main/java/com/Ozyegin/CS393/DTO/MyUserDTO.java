@@ -9,6 +9,10 @@ public class MyUserDTO {
         this.userId = userId;
     }
 
+    public MyUserDTO(int userId){
+        this.userId = userId;
+    }
+
     public int getUserId() {
         return userId;
     }
