@@ -13,8 +13,7 @@ public class QuestionComment {
 
     @ManyToOne
     @NotNull
-    @Column(name = "ANSWER")
-    private Answer answer;
+    private Question question;
 
     @NotNull
     @Column(name = "COMMENT_TEXT")
@@ -22,7 +21,6 @@ public class QuestionComment {
 
     @ManyToOne
     @NotNull
-    @Column(name = "USER")
     private MyUser user;
 
     @NotNull

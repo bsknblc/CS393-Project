@@ -1,11 +1,4 @@
-package com.Ozyegin.CS393.Model.DTO;
-
-import com.sun.istack.NotNull;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.Ozyegin.CS393.DTO;
 
 public class MyUser {
     private int userId;

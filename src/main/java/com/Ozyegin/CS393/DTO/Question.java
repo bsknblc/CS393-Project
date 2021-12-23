@@ -1,13 +1,6 @@
-package com.Ozyegin.CS393.Model.DTO;
+package com.Ozyegin.CS393.DTO;
 
-import com.Ozyegin.CS393.Model.MyUser;
-import com.Ozyegin.CS393.Model.Tag;
-import com.sun.istack.NotNull;
-
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Question {
     private int questionId;
