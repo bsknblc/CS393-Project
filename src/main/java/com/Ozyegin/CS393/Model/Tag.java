@@ -19,7 +19,6 @@ public class Tag {
 
     @NotNull
     @ManyToMany(mappedBy = "tag")
-    @Column(name = "QUESTIONS")
     private List<Question> questions = new ArrayList<>();
 
     public Tag(){}
@@ -42,5 +41,13 @@ public class Tag {
 
     public void setTagName(String tagName) {
         this.tagName = tagName;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 }
