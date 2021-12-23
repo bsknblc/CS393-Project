@@ -1,6 +1,5 @@
 package com.Ozyegin.CS393.DTO;
 
-
 public class AnswerDTO {
 
     private int answerId;
