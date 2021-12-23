@@ -9,11 +9,12 @@ public class MyUserDTO {
         this.userId = userId;
     }
 
+
     public int getUserId() {
         return userId;
     }
 
-    public void setUserId() { this userID = userId; }
+    public void setUserId() { this.userId = userId; }
 
     public String getName() { return name; }
 
