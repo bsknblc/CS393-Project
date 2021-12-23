@@ -17,9 +17,10 @@ public class MyUserDTO {
         return userId;
     }
 
+    public void setUserId() { this userID = userId; }
+  
     public void setUserId() { this.userId = userId; }
 
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-}
