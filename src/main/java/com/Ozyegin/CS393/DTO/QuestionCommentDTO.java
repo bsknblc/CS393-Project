@@ -1,4 +1,4 @@
 package com.Ozyegin.CS393.DTO;
 
-public class QuestionComment {
+public class QuestionCommentDTO {
 }
