@@ -1,4 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
-public class QuestionService {
+import com.Ozyegin.CS393.Model.Question;
+
+public interface QuestionService {
+    public Question save(Question question);
 }
