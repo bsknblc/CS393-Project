@@ -7,9 +7,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_QUESTION_COMMENT")
 public class QuestionComment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int commentId;
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
+    }
 
     @ManyToOne
     @NotNull
