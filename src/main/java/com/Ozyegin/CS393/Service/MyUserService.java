@@ -1,4 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
-public class MyUserService {
+import com.Ozyegin.CS393.Model.MyUser;
+
+public interface MyUserService {
+    public MyUser save(MyUser myUser);
 }
