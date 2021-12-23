@@ -3,7 +3,6 @@ package com.Ozyegin.CS393.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity

@@ -1,4 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
-public class TagService {
+import com.Ozyegin.CS393.Model.Tag;
+
+public interface TagService {
+    public Tag save(Tag tag);
 }

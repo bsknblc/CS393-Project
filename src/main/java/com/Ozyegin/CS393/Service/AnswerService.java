@@ -1,4 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
-public class AnswerService {
+import com.Ozyegin.CS393.Model.Answer;
+
+public interface AnswerService {
+    public Answer save(Answer answer);
 }

@@ -9,14 +9,18 @@ public class MyUserDTO {
         this.userId = userId;
     }
 
+    public MyUserDTO(int userId){
+        this.userId = userId;
+    }
 
     public int getUserId() {
         return userId;
     }
 
+    public void setUserId() { this userID = userId; }
+  
     public void setUserId() { this.userId = userId; }
 
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-}
