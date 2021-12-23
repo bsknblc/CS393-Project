@@ -2,22 +2,15 @@ package com.Ozyegin.CS393.DTO;
 
 import java.util.Date;
 
-public class Question {
+public class QuestionDTO {
     private int questionId;
-
     private String questionTitle;
-
     private String questionDescription;
-
     private Date askedDate;
-
     private int answerCount;
-
     private int voteCount;
 
-    public Question(){}
-
-    public Question(int questionId, String questionTitle, String questionDescription, Date askedDate, int answerCount, int voteCount) {
+    public QuestionDTO(int questionId, String questionTitle, String questionDescription, Date askedDate, int answerCount, int voteCount) {
         this.questionId = questionId;
         this.questionTitle = questionTitle;
         this.questionDescription = questionDescription;

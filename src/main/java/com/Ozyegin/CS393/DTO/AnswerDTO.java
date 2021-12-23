@@ -1,16 +1,12 @@
 package com.Ozyegin.CS393.DTO;
 
-public class Answer {
+public class AnswerDTO {
 
     private int answerId;
-
     private String answerText;
-
     private int voteCount;
 
-    public Answer(){}
-
-    public Answer(int answerId, String answerText, int voteCount) {
+    public AnswerDTO(int answerId, String answerText, int voteCount) {
         this.answerId = answerId;
         this.answerText = answerText;
         this.voteCount = voteCount;
