@@ -60,7 +60,7 @@ public class QuestionCommentServiceImp implements QuestionCommentService {
 
 
         myUserRepository.save(user);
-//todo: ne?
+//todo: ya burada use olmayacak ya da userda qcomment olacak
 
         return questionCommentDTO;
 
