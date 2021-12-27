@@ -1,6 +1,8 @@
 package com.Ozyegin.CS393.Controller;
 
 import com.Ozyegin.CS393.DTO.QuestionCommentDTO;
+import com.Ozyegin.CS393.DTO.QuestionDTO;
+import com.Ozyegin.CS393.Model.Question;
 import com.Ozyegin.CS393.Model.QuestionComment;
 import com.Ozyegin.CS393.Service.QuestionCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +29,10 @@ public class QuestionCommentController {
     public QuestionComment save(@RequestBody QuestionComment questionComment){
         return questionCommentService.save(questionComment);
     }
+
+    @PostMapping("/user/{user-id}/question/{question-id}")
+    public QuestionCommentDTO saveQuestionComment(@RequestBody QuestionComment questionComment, @PathVariable("user-id") int userId, @PathVariable("question-id") int questionId) {
+        return questionCommentService.saveQuestionComment(questionComment, userId, questionId);
+    }
+
 }
