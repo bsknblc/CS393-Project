@@ -31,4 +31,9 @@ public class AnswerCommentController {
         return answerCommentService.save(answerComment);
     }
 
+    @PostMapping("/user/{user-id}/answer/{answer-id}")
+    public AnswerCommentDTO saveAnswerComment(@RequestBody AnswerComment answerComment, @PathVariable("user-id") int userId, @PathVariable("answer-id") int answerId) {
+        return answerCommentService.saveAnswerComment(answerComment, userId, answerId);
+    }
+
 }

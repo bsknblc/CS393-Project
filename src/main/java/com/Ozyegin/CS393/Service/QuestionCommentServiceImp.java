@@ -58,12 +58,13 @@ public class QuestionCommentServiceImp implements QuestionCommentService {
         questionCommentRepository.save(questionComment);
         QuestionCommentDTO questionCommentDTO = new QuestionCommentDTO(questionComment.getId(), questionComment.getUser(), questionComment.getQuestion(), questionComment.getCommentText(), questionComment.getVoteCount());
 
-
+        user.getQuestionComments().add(questionComment);
         myUserRepository.save(user);
-//todo: ya burada use olmayacak ya da userda qcomment olacak
+
+        question.getQuestionComments().add(questionComment);
+        questionRepository.save(question);
 
         return questionCommentDTO;
-
     }
 
 }
