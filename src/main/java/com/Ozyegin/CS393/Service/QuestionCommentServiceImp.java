@@ -22,14 +22,14 @@ public class QuestionCommentServiceImp implements QuestionCommentService {
         List<QuestionComment> questionComments = questionCommentRepository.findAll();
         List<QuestionCommentDTO> questionCommentDTOs = new ArrayList<QuestionCommentDTO>();
         for (QuestionComment questionComment: questionComments) {
-            questionCommentDTOs.add(new QuestionCommentDTO(questionComment.getCommentId()));
+            questionCommentDTOs.add(new QuestionCommentDTO(questionComment.getId(), questionComment.getUser(), questionComment.getQuestion(), questionComment.getCommentText(), questionComment.getVoteCount()));
         }
         return questionCommentDTOs;
     }
 
     public QuestionCommentDTO findById(int id){
         QuestionComment questionComment = questionCommentRepository.findById(id);
-        QuestionCommentDTO questionCommentDTO = new QuestionCommentDTO(questionComment.getCommentId());
+        QuestionCommentDTO questionCommentDTO = new QuestionCommentDTO(questionComment.getId(), questionComment.getUser(), questionComment.getQuestion(), questionComment.getCommentText(), questionComment.getVoteCount());
         return questionCommentDTO;
     }
 

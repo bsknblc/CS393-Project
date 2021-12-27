@@ -22,14 +22,14 @@ public class AnswerServiceImp implements AnswerService {
         List<Answer> answers = answerRepository.findAll();
         List<AnswerDTO> directorDTOs = new ArrayList<AnswerDTO>();
         for (Answer answer : answers) {
-            directorDTOs.add(new AnswerDTO(answer.getAnswerId()));
+            directorDTOs.add(new AnswerDTO(answer.getAnswerId(), answer.getQuestion(), answer.getAnswerText(), answer.getUser(), answer.getVoteCount(), answer.getAnswerComments()));
         }
         return directorDTOs;
     }
 
     public AnswerDTO findById(int id){
         Answer answer = answerRepository.findById(id);
-        AnswerDTO answerDTO = new AnswerDTO(answer.getAnswerId());
+        AnswerDTO answerDTO = new AnswerDTO(answer.getAnswerId(), answer.getQuestion(), answer.getAnswerText(), answer.getUser(), answer.getVoteCount(), answer.getAnswerComments());
         return answerDTO;
     }
 

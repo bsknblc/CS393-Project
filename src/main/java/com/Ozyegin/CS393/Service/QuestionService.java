@@ -2,6 +2,8 @@ package com.Ozyegin.CS393.Service;
 
 import com.Ozyegin.CS393.DTO.QuestionDTO;
 import com.Ozyegin.CS393.Model.Question;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -10,4 +12,5 @@ public interface QuestionService {
     public List<QuestionDTO> findAll();
     public QuestionDTO findById(int id);
     public void deleteById(int id);
+    public QuestionDTO saveQuestion(Question question, int userId, int tagId);
 }

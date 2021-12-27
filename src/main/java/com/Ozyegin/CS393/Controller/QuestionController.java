@@ -27,4 +27,10 @@ public class QuestionController {
     public Question save(@RequestBody Question question){
         return questionService.save(question);
     }
+
+    @PostMapping("/user/{user-id}/tag/{tag-id}")
+    public QuestionDTO saveQuestion(@RequestBody Question question, @PathVariable("user-id") int userId, @PathVariable("tag-id") int tagId) {
+        return questionService.saveQuestion(question, userId, tagId);
+    }
+
 }
