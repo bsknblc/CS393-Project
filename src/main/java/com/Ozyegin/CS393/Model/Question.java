@@ -1,5 +1,6 @@
 package com.Ozyegin.CS393.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -24,7 +25,6 @@ public class Question {
 
     @NotNull
     @ManyToMany
-    @Column(name = "QUESTION_TAG")
     private List<Tag> questionTag = new ArrayList<>();
 
     @NotNull
@@ -33,7 +33,6 @@ public class Question {
 
     @NotNull
     @ManyToOne
-    @Column(name = "ASKED_BY")
     private MyUser askedBy;
 
     @NotNull
@@ -43,6 +42,16 @@ public class Question {
     @NotNull
     @Column(name = "VOTE_COUNT")
     private int voteCount = 0;
+
+    @OneToMany(mappedBy = "question")
+    @JsonIgnore
+    private List<Answer> answers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "question")
+    @JsonIgnore
+    private List<QuestionComment> questionComments = new ArrayList<>();
+
+
 
     public Question(){}
 
@@ -120,5 +129,21 @@ public class Question {
 
     public void setVoteCount(int voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public List<QuestionComment> getQuestionComments() {
+        return questionComments;
+    }
+
+    public void setQuestionComments(List<QuestionComment> questionComments) {
+        this.questionComments = questionComments;
     }
 }

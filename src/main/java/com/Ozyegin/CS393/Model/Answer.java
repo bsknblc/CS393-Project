@@ -1,8 +1,11 @@
 package com.Ozyegin.CS393.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "T_ANSWER")
@@ -22,12 +25,15 @@ public class Answer {
 
     @ManyToOne
     @NotNull
-    @Column(name = "USER")
     private MyUser user;
 
     @NotNull
     @Column(name = "VOTE_COUNT")
     private int voteCount = 0;
+
+    @OneToMany(mappedBy = "answer")
+    @JsonIgnore
+    private List<AnswerComment> answerComments = new ArrayList<>();
 
     public Answer(){}
 
@@ -75,5 +81,13 @@ public class Answer {
 
     public void setVoteCount(int voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public List<AnswerComment> getAnswerComments() {
+        return answerComments;
+    }
+
+    public void setAnswerComments(List<AnswerComment> answerComments) {
+        this.answerComments = answerComments;
     }
 }

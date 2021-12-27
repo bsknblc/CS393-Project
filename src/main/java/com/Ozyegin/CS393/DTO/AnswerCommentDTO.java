@@ -1,17 +1,66 @@
 package com.Ozyegin.CS393.DTO;
 
+import com.Ozyegin.CS393.Model.Answer;
+import com.Ozyegin.CS393.Model.MyUser;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+
 public class AnswerCommentDTO {
-    private int id;
+    private int answerCommentId;
+    private MyUser user;
+    private Answer answer;
+    private String commentText;
+    private int voteCount = 0;
 
-    public AnswerCommentDTO(int id) {
-        this.id = id;
+    public AnswerCommentDTO(){}
+
+    public AnswerCommentDTO(int answerCommentId, MyUser user, Answer answer, String commentText, int voteCount) {
+        this.answerCommentId = answerCommentId;
+        this.user = user;
+        this.answer = answer;
+        this.commentText = commentText;
+        this.voteCount = voteCount;
     }
 
-    public int getId() {
-        return id;
+    public int getAnswerCommentId() {
+        return answerCommentId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAnswerCommentId(int answerCommentId) {
+        this.answerCommentId = answerCommentId;
+    }
+
+    public MyUser getUser() {
+        return user;
+    }
+
+    public void setUser(MyUser user) {
+        this.user = user;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
+
+    public String getCommentText() {
+        return commentText;
+    }
+
+    public void setCommentText(String commentText) {
+        this.commentText = commentText;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
     }
 }
