@@ -2,8 +2,10 @@ package com.Ozyegin.CS393.Controller;
 
 import com.Ozyegin.CS393.DTO.AnswerCommentDTO;
 import com.Ozyegin.CS393.DTO.QuestionCommentDTO;
+import com.Ozyegin.CS393.Model.Answer;
 import com.Ozyegin.CS393.Model.AnswerComment;
 import com.Ozyegin.CS393.Model.QuestionComment;
+import com.Ozyegin.CS393.Repository.AnswerCommentRepository;
 import com.Ozyegin.CS393.Service.AnswerCommentService;
 import com.Ozyegin.CS393.Service.QuestionCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import java.util.List;
 public class AnswerCommentController {
     @Autowired
     AnswerCommentService answerCommentService;
+    AnswerCommentRepository answerCommentRepository;
 
     @GetMapping
     public List<AnswerCommentDTO> findAll(){ return answerCommentService.findAll(); }
@@ -36,4 +39,21 @@ public class AnswerCommentController {
         return answerCommentService.saveAnswerComment(answerComment, userId, answerId);
     }
 
+    @PutMapping("/{answerComment-id}/like")
+    public int like(@PathVariable("answerComment-id") int id) {
+        AnswerComment answerComment = answerCommentRepository.findById(id);
+        answerComment.setVoteCount(answerComment.getVoteCount() + 1);
+        answerCommentRepository.save(answerComment);
+
+        return answerComment.getVoteCount();
+    }
+
+    @PutMapping("/{answerComment-id}/dislike")
+    public int dislike(@PathVariable("answerComment-id") int id) {
+        AnswerComment answerComment = answerCommentRepository.findById(id);
+        answerComment.setVoteCount(answerComment.getVoteCount() - 1);
+        answerCommentRepository.save(answerComment);
+
+        return answerComment.getVoteCount();
+    }
 }
