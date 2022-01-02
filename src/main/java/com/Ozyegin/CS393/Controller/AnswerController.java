@@ -4,6 +4,7 @@ import com.Ozyegin.CS393.DTO.AnswerDTO;
 import com.Ozyegin.CS393.DTO.QuestionDTO;
 import com.Ozyegin.CS393.Model.Answer;
 import com.Ozyegin.CS393.Model.Question;
+import com.Ozyegin.CS393.Repository.AnswerRepository;
 import com.Ozyegin.CS393.Service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 public class AnswerController {
     @Autowired
     AnswerService answerService;
+    AnswerRepository answerRepository;
 
     @GetMapping
     public List<AnswerDTO> findAll(){ return answerService.findAll(); }
@@ -31,5 +33,23 @@ public class AnswerController {
     @PostMapping("/user/{user-id}/question/{question-id}")
     public AnswerDTO saveAnswer(@RequestBody Answer answer, @PathVariable("user-id") int userId, @PathVariable("question-id") int questionId) {
         return answerService.saveAnswer(answer, userId, questionId);
+    }
+
+    @PutMapping("/{answer-id}/like")
+    public int like(@PathVariable("answer-id") int id) {
+    Answer answer = answerRepository.findById(id);
+    answer.setVoteCount(answer.getVoteCount() + 1);
+    answerRepository.save(answer);
+
+    return answer.getVoteCount();
+    }
+
+    @PutMapping("/{answer-id}/dislike")
+    public int dislike(@PathVariable("answer-id") int id) {
+        Answer answer = answerRepository.findById(id);
+        answer.setVoteCount(answer.getVoteCount() - 1);
+        answerRepository.save(answer);
+
+        return answer.getVoteCount();
     }
 }

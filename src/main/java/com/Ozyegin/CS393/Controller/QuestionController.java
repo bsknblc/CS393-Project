@@ -2,6 +2,8 @@ package com.Ozyegin.CS393.Controller;
 
 import com.Ozyegin.CS393.DTO.QuestionDTO;
 import com.Ozyegin.CS393.Model.Question;
+import com.Ozyegin.CS393.Model.QuestionComment;
+import com.Ozyegin.CS393.Repository.QuestionRepository;
 import com.Ozyegin.CS393.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import java.util.List;
 public class QuestionController {
     @Autowired
     QuestionService questionService;
+    QuestionRepository questionRepository;
 
     @GetMapping
     public List<QuestionDTO> findAll(){ return questionService.findAll(); }
@@ -33,4 +36,21 @@ public class QuestionController {
         return questionService.saveQuestion(question, userId, tagId);
     }
 
+    @PutMapping("/{question-id}/like")
+    public int like(@PathVariable("question-id") int id) {
+        Question question = questionRepository.findById(id);
+        question.setVoteCount(question.getVoteCount() + 1);
+        questionRepository.save(question);
+
+        return question.getVoteCount();
+    }
+
+    @PutMapping("/{question-id}/dislike")
+    public int dislike(@PathVariable("question-id") int id) {
+        Question question = questionRepository.findById(id);
+        question.setVoteCount(question.getVoteCount() - 1);
+        questionRepository.save(question);
+
+        return question.getVoteCount();
+    }
 }
