@@ -1,6 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
 import com.Ozyegin.CS393.DTO.AnswerDTO;
+import com.Ozyegin.CS393.DTO.QuestionDTO;
 import com.Ozyegin.CS393.Model.Answer;
 import com.Ozyegin.CS393.Model.MyUser;
 import com.Ozyegin.CS393.Model.Question;
@@ -62,6 +63,15 @@ public class AnswerServiceImp implements AnswerService {
         questionRepository.save(question);
 
         return answerDTO;
+    }
+
+    public AnswerDTO updateAnswer(String text, int answerId){
+        Answer answer =answerRepository.findById(answerId);
+        answer.setAnswerText(text);
+        answerRepository.save(answer);
+        AnswerDTO answerDTO = new AnswerDTO(answer.getAnswerId(), answer.getQuestion(), answer.getAnswerText(), answer.getUser(), answer.getVoteCount(), answer.getAnswerComments());
+
+        return  answerDTO;
     }
 
 }

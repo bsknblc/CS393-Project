@@ -36,6 +36,11 @@ public class QuestionController {
         return questionService.saveQuestion(question, userId, tagId);
     }
 
+    @PutMapping("/{question-id}")
+    public QuestionDTO updateQuestion(@RequestBody String text, @PathVariable("question-id") int questionId) {
+        return questionService.updateQuestion(text, questionId);
+    }
+
     @PutMapping("/{question-id}/like")
     public int like(@PathVariable("question-id") int id) {
         Question question = questionRepository.findById(id);

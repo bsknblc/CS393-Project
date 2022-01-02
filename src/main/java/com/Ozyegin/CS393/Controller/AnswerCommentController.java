@@ -1,6 +1,7 @@
 package com.Ozyegin.CS393.Controller;
 
 import com.Ozyegin.CS393.DTO.AnswerCommentDTO;
+import com.Ozyegin.CS393.DTO.AnswerDTO;
 import com.Ozyegin.CS393.DTO.QuestionCommentDTO;
 import com.Ozyegin.CS393.Model.Answer;
 import com.Ozyegin.CS393.Model.AnswerComment;
@@ -37,6 +38,11 @@ public class AnswerCommentController {
     @PostMapping("/user/{user-id}/answer/{answer-id}")
     public AnswerCommentDTO saveAnswerComment(@RequestBody AnswerComment answerComment, @PathVariable("user-id") int userId, @PathVariable("answer-id") int answerId) {
         return answerCommentService.saveAnswerComment(answerComment, userId, answerId);
+    }
+
+    @PutMapping("/{answerComment-id}")
+    public AnswerCommentDTO updateAnswerComment(@RequestBody String text, @PathVariable("answerComment-id") int answerCommentId) {
+        return answerCommentService.updateAnswerComment(text, answerCommentId);
     }
 
     @PutMapping("/{answerComment-id}/like")

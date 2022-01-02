@@ -13,4 +13,5 @@ public interface AnswerCommentService {
     public AnswerCommentDTO findById(int id);
     public void deleteById(int id);
     public AnswerCommentDTO saveAnswerComment(AnswerComment answerComment, int userId, int answerId);
+    public AnswerCommentDTO updateAnswerComment(String text, int answerCommentId);
 }

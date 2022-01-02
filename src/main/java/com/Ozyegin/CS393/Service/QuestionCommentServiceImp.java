@@ -1,11 +1,9 @@
 package com.Ozyegin.CS393.Service;
 
+import com.Ozyegin.CS393.DTO.AnswerCommentDTO;
 import com.Ozyegin.CS393.DTO.QuestionCommentDTO;
 import com.Ozyegin.CS393.DTO.QuestionDTO;
-import com.Ozyegin.CS393.Model.MyUser;
-import com.Ozyegin.CS393.Model.Question;
-import com.Ozyegin.CS393.Model.QuestionComment;
-import com.Ozyegin.CS393.Model.Tag;
+import com.Ozyegin.CS393.Model.*;
 import com.Ozyegin.CS393.Repository.MyUserRepository;
 import com.Ozyegin.CS393.Repository.QuestionCommentRepository;
 import com.Ozyegin.CS393.Repository.QuestionRepository;
@@ -65,6 +63,15 @@ public class QuestionCommentServiceImp implements QuestionCommentService {
         questionRepository.save(question);
 
         return questionCommentDTO;
+    }
+
+    public QuestionCommentDTO updateQuestionComment(String text, int questionCommentId){
+        QuestionComment questionComment =questionCommentRepository.findById(questionCommentId);
+        questionComment.setCommentText(text);
+        questionCommentRepository.save(questionComment);
+        QuestionCommentDTO questionCommentDTO = new QuestionCommentDTO(questionComment.getId(), questionComment.getUser(), questionComment.getQuestion(), questionComment.getCommentText(), questionComment.getVoteCount());
+
+        return  questionCommentDTO;
     }
 
 }
