@@ -16,6 +16,10 @@ public class AnswerComment {
 
     @ManyToOne
     @JsonIgnore
+    private MyUser user;
+
+    @ManyToOne
+    @JsonIgnore
     private Answer answer;
 
     @NotNull
@@ -25,6 +29,14 @@ public class AnswerComment {
     @NotNull
     @Column(name = "VOTE_COUNT")
     private int voteCount = 0;
+
+    public MyUser getUser() {
+        return user;
+    }
+
+    public void setUser(MyUser user) {
+        this.user = user;
+    }
 
     public AnswerComment(){}
 

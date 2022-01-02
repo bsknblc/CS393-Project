@@ -16,14 +16,18 @@ public class MyUserDTO {
     private String name;
     private List<Question> questions = new ArrayList<>();
     private List<Answer> answers = new ArrayList<>();
+    private List<QuestionComment> questionComments = new ArrayList<>();
+    private List<AnswerComment> answerComments = new ArrayList<>();
 
     public MyUserDTO(){}
 
-    public MyUserDTO(int userId, String name, List<Question> questions, List<Answer> answers) {
+    public MyUserDTO(int userId, String name, List<Question> questions, List<Answer> answers, List<QuestionComment> questionComments, List<AnswerComment> answerComments) {
         this.userId = userId;
         this.name = name;
         this.questions = questions;
         this.answers = answers;
+        this.questionComments = questionComments;
+        this.answerComments = answerComments;
     }
 
     public int getUserId() {
@@ -56,6 +60,22 @@ public class MyUserDTO {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public List<QuestionComment> getQuestionComments() {
+        return questionComments;
+    }
+
+    public void setQuestionComments(List<QuestionComment> questionComments) {
+        this.questionComments = questionComments;
+    }
+
+    public List<AnswerComment> getAnswerComments() {
+        return answerComments;
+    }
+
+    public void setAnswerComments(List<AnswerComment> answerComments) {
+        this.answerComments = answerComments;
     }
 
 }
