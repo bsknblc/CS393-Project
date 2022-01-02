@@ -13,4 +13,5 @@ public interface AnswerService {
     public AnswerDTO findById(int id);
     public void deleteById(int id);
     public AnswerDTO saveAnswer(Answer answer, int userId, int questionId);
+    public AnswerDTO updateAnswer(String text, int answerId);
 }

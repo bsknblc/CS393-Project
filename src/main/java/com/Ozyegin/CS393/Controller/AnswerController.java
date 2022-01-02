@@ -35,6 +35,11 @@ public class AnswerController {
         return answerService.saveAnswer(answer, userId, questionId);
     }
 
+    @PutMapping("/{answer-id}")
+    public AnswerDTO updateAnswer(@RequestBody String text, @PathVariable("answer-id") int answerId) {
+        return answerService.updateAnswer(text, answerId);
+    }
+
     @PutMapping("/{answer-id}/like")
     public int like(@PathVariable("answer-id") int id) {
     Answer answer = answerRepository.findById(id);

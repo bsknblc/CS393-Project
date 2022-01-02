@@ -1,6 +1,7 @@
 package com.Ozyegin.CS393.Service;
 
 import com.Ozyegin.CS393.DTO.AnswerCommentDTO;
+import com.Ozyegin.CS393.DTO.AnswerDTO;
 import com.Ozyegin.CS393.DTO.QuestionCommentDTO;
 import com.Ozyegin.CS393.Model.Answer;
 import com.Ozyegin.CS393.Model.AnswerComment;
@@ -65,6 +66,15 @@ public class AnswerCommentServiceImp implements AnswerCommentService {
         answerRepository.save(answer);
 
         return answerCommentDTO;
+    }
+
+    public AnswerCommentDTO updateAnswerComment(String text, int answerCommentId){
+        AnswerComment answerComment =answerCommentRepository.findById(answerCommentId);
+        answerComment.setCommentText(text);
+        answerCommentRepository.save(answerComment);
+        AnswerCommentDTO answerCommentDTO = new AnswerCommentDTO(answerComment.getAnswerCommentId(), answerComment.getUser() ,answerComment.getAnswer(), answerComment.getCommentText(), answerComment.getVoteCount());
+
+        return  answerCommentDTO;
     }
 
 }

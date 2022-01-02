@@ -68,4 +68,18 @@ public class QuestionServiceImp implements QuestionService{
         return questionDTO;
 
     }
+
+    public QuestionDTO updateQuestion(String text, int questionId){
+        Question question =questionRepository.findById(questionId);
+        question.setQuestionDescription(text);
+        if (question.getQuestionDescription().length()>=100){
+            question.setQuestionTitle(question.getQuestionDescription().substring(0,99));
+        }else{
+            question.setQuestionTitle(question.getQuestionDescription());
+        }
+        questionRepository.save(question);
+        QuestionDTO questionDTO = new QuestionDTO(question.getQuestionId(),question.getQuestionTitle(), question.getQuestionDescription(), question.getQuestionTag(), question.getAskedDate(), question.getAskedBy(), question.getAnswerCount(), question.getVoteCount(), question.getAnswers(), question.getQuestionComments());
+
+        return  questionDTO;
+    }
 }
