@@ -21,14 +21,14 @@ public class MyUserServiceImp implements MyUserService{
         List<MyUser> myUsers = myUserRepository.findAll();
         List<MyUserDTO> myUserDTOS = new ArrayList<MyUserDTO>();
         for (MyUser myUser: myUsers) {
-            myUserDTOS.add(new MyUserDTO(myUser.getUserId(), myUser.getName(), myUser.getQuestions(), myUser.getAnswers(), myUser.getQuestionComments(), myUser.getAnswerComments()));
+            myUserDTOS.add(new MyUserDTO(myUser.getUserId(), myUser.getName(), myUser.getQuestions(), myUser.getAnswers()));
         }
         return myUserDTOS;
     }
 
     public MyUserDTO findById(int id){
         MyUser myUser = myUserRepository.findById(id);
-        MyUserDTO myUserDTO = new MyUserDTO(myUser.getUserId(), myUser.getName(), myUser.getQuestions(), myUser.getAnswers(), myUser.getQuestionComments(), myUser.getAnswerComments());
+        MyUserDTO myUserDTO = new MyUserDTO(myUser.getUserId(), myUser.getName(), myUser.getQuestions(), myUser.getAnswers());
         return myUserDTO;
     }
 

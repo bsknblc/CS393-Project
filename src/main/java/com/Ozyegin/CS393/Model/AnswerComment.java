@@ -16,10 +16,6 @@ public class AnswerComment {
 
     @ManyToOne
     @JsonIgnore
-    private MyUser user;
-
-    @ManyToOne
-    @JsonIgnore
     private Answer answer;
 
     @NotNull
@@ -42,14 +38,6 @@ public class AnswerComment {
 
     public void setAnswerCommentId(int answerCommentId) {
         this.answerCommentId = answerCommentId;
-    }
-
-    public MyUser getUser() {
-        return user;
-    }
-
-    public void setUser(MyUser user) {
-        this.user = user;
     }
 
     public Answer getAnswer() {

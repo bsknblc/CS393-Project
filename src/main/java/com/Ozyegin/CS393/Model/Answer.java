@@ -16,7 +16,7 @@ public class Answer {
 
     @ManyToOne
     @NotNull
-    @Column(name = "QUESTION")
+    @JsonIgnore
     private Question question;
 
     @NotNull

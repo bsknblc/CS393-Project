@@ -9,16 +9,14 @@ import javax.persistence.*;
 
 public class AnswerCommentDTO {
     private int answerCommentId;
-    private MyUser user;
     private Answer answer;
     private String commentText;
     private int voteCount = 0;
 
     public AnswerCommentDTO(){}
 
-    public AnswerCommentDTO(int answerCommentId, MyUser user, Answer answer, String commentText, int voteCount) {
+    public AnswerCommentDTO(int answerCommentId, Answer answer, String commentText, int voteCount) {
         this.answerCommentId = answerCommentId;
-        this.user = user;
         this.answer = answer;
         this.commentText = commentText;
         this.voteCount = voteCount;
@@ -30,14 +28,6 @@ public class AnswerCommentDTO {
 
     public void setAnswerCommentId(int answerCommentId) {
         this.answerCommentId = answerCommentId;
-    }
-
-    public MyUser getUser() {
-        return user;
-    }
-
-    public void setUser(MyUser user) {
-        this.user = user;
     }
 
     public Answer getAnswer() {

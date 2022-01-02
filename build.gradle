@@ -19,7 +19,6 @@ dependencies {
 	runtimeOnly  'org.apache.derby:derbytools:10.15.2.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly  'org.apache.derby:derbyclient:10.15.2.0'
-
 }
 
 test {

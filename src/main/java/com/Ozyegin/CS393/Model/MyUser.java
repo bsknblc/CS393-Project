@@ -18,24 +18,13 @@ public class MyUser {
     @Column(name = "NAME", length = 50)
     private String name;
 
-    @OneToMany(mappedBy = "myuser")
+    @OneToMany(mappedBy = "askedBy")
     @JsonIgnore
     private List<Question> questions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "myuser")
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<Answer> answers = new ArrayList<>();
-
-    @OneToMany(mappedBy = "myuser")
-    @JsonIgnore
-    private List<QuestionComment> questionComments = new ArrayList<>();
-
-    @OneToMany(mappedBy = "myuser")
-    @JsonIgnore
-    private List<AnswerComment> answerComments = new ArrayList<>();
-
-
-
 
     public MyUser(){}
 
@@ -73,21 +62,5 @@ public class MyUser {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
-    }
-
-    public List<QuestionComment> getQuestionComments() {
-        return questionComments;
-    }
-
-    public void setQuestionComments(List<QuestionComment> questionComments) {
-        this.questionComments = questionComments;
-    }
-
-    public List<AnswerComment> getAnswerComments() {
-        return answerComments;
-    }
-
-    public void setAnswerComments(List<AnswerComment> answerComments) {
-        this.answerComments = answerComments;
     }
 }
