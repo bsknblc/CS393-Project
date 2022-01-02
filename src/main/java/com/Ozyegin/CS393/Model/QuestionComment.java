@@ -15,6 +15,10 @@ public class QuestionComment {
 
     @ManyToOne
     @JsonIgnore
+    private MyUser user;
+
+    @ManyToOne
+    @JsonIgnore
     private Question question;
 
     @NotNull
@@ -26,6 +30,8 @@ public class QuestionComment {
     private int voteCount = 0;
 
 
+
+
     public QuestionComment(){}
 
 
@@ -35,6 +41,14 @@ public class QuestionComment {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public MyUser getUser() {
+        return user;
+    }
+
+    public void setUser(MyUser user) {
+        this.user = user;
     }
 
     public Question getQuestion() {

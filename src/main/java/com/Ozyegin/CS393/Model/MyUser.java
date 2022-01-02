@@ -26,6 +26,14 @@ public class MyUser {
     @JsonIgnore
     private List<Answer> answers = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<QuestionComment> questionComments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<AnswerComment> answerComments = new ArrayList<>();
+
     public MyUser(){}
 
     public MyUser(String name){
@@ -62,5 +70,21 @@ public class MyUser {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public List<QuestionComment> getQuestionComments() {
+        return questionComments;
+    }
+
+    public void setQuestionComments(List<QuestionComment> questionComments) {
+        this.questionComments = questionComments;
+    }
+
+    public List<AnswerComment> getAnswerComments() {
+        return answerComments;
+    }
+
+    public void setAnswerComments(List<AnswerComment> answerComments) {
+        this.answerComments = answerComments;
     }
 }
