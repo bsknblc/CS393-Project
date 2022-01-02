@@ -18,8 +18,7 @@ public class Tag {
     private String tagName;
 
     @NotNull
-    @ManyToMany(mappedBy = "tag")
-    @Column(name = "QUESTIONS")
+    @ManyToMany(mappedBy = "questionTag")
     private List<Question> questions = new ArrayList<>();
 
     public Tag(){}

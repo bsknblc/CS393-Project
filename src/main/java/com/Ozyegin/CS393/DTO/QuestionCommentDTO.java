@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 public class QuestionCommentDTO {
     private int id;
-    private MyUser user;
     private Question question;
     private String commentText;
     private int voteCount = 0;
@@ -17,9 +16,8 @@ public class QuestionCommentDTO {
 
     public QuestionCommentDTO(){}
 
-    public QuestionCommentDTO(int id, MyUser user, Question question, String commentText, int voteCount) {
+    public QuestionCommentDTO(int id, Question question, String commentText, int voteCount) {
         this.id = id;
-        this.user = user;
         this.question = question;
         this.commentText = commentText;
         this.voteCount = voteCount;
@@ -31,14 +29,6 @@ public class QuestionCommentDTO {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public MyUser getUser() {
-        return user;
-    }
-
-    public void setUser(MyUser user) {
-        this.user = user;
     }
 
     public Question getQuestion() {
